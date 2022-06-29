@@ -19,8 +19,8 @@ export class MyFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup<UserForm>({
-      [FormControlName.USERNAME]: new FormControl('', {nonNullable: true}),
-      [FormControlName.PASSWORD]: new FormControl('', {nonNullable: true}),
+      [FormControlName.USERNAME]: new FormControl<string>('', {nonNullable: true}),
+      [FormControlName.PASSWORD]: new FormControl<string>('', {nonNullable: true}),
       [FormControlName.ADDRESS]: new AddressFromGroup()
     });
   }

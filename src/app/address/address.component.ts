@@ -23,10 +23,10 @@ export class AddressComponent implements OnInit, ControlValueAccessor, OnDestroy
 
   ngOnInit(): void {
     this.form = new FormGroup<AddressForm>({
-      [FormControlName.POSTAL_CODE]: new FormControl('', {nonNullable: true}),
-      [FormControlName.CITY]: new FormControl('', {nonNullable: true}),
-      [FormControlName.STREET]: new FormControl('', {nonNullable: true}),
-      [FormControlName.STREET_NUMBER]: new FormControl('', {nonNullable: true}),
+      [FormControlName.POSTAL_CODE]: new FormControl<string>('', {nonNullable: true}),
+      [FormControlName.CITY]: new FormControl<string>('', {nonNullable: true}),
+      [FormControlName.STREET]: new FormControl<string>('', {nonNullable: true}),
+      [FormControlName.STREET_NUMBER]: new FormControl<string>('', {nonNullable: true}),
     });
   }
 
