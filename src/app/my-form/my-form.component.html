@@ -1,1 +1,18 @@
-<p>my-form works!</p>
+<fieldset *ngIf="form" [formGroup]="form">
+  <label for="{{FormControlName.USERNAME}}">Username:</label>
+  <input type="text" id="{{FormControlName.USERNAME}}"
+         formControlName="{{FormControlName.USERNAME}}"/>
+
+  <label for="{{FormControlName.PASSWORD}}">Password:</label>
+  <input type="password" id="{{FormControlName.PASSWORD}}"
+         formControlName="{{FormControlName.PASSWORD}}"/>
+
+  <br/>
+
+  <label for="{{FormControlName.ADDRESS}}">Addres:</label>
+  <app-address formControlName="{{FormControlName.ADDRESS}}"></app-address>
+
+  <button type="button" (click)="send()">Send</button>
+</fieldset>
+
+{{form.getRawValue() | json}}

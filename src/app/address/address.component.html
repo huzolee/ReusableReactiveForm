@@ -1,1 +1,19 @@
-<p>address works!</p>
+<form [formGroup]="form">
+  <label for="{{FormControlName.POSTAL_CODE}}">Postal code:</label>
+  <input id="{{FormControlName.POSTAL_CODE}}" formControlName="{{FormControlName.POSTAL_CODE}}"
+         (blur)="onTouched()"/>
+
+  <br/>
+
+  <label for="{{FormControlName.CITY}}">City:</label>
+  <input id="{{FormControlName.CITY}}" formControlName="{{FormControlName.CITY}}"
+         (blur)="onTouched()"/>
+
+  <label for="{{FormControlName.STREET}}">Street:</label>
+  <input id="{{FormControlName.STREET}}" formControlName="{{FormControlName.STREET}}"
+         (blur)="onTouched()"/>
+  <label for="{{FormControlName.STREET_NUMBER}}">Street number:</label>
+  <input id="{{FormControlName.STREET_NUMBER}}"
+         formControlName="{{FormControlName.STREET_NUMBER}}"
+         (blur)="onTouched()"/>
+</form>
