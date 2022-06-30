@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "ReusableReactiveForm"
+  "defaultProject": "ReusableReactiveForm",
+  "cli": {
+    "analytics": false
+  }
 }

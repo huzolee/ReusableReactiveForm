@@ -6,45 +6,45 @@ import {Address} from './address';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.scss'],
-  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: AddressComponent, multi: true}]
+    selector: 'app-address',
+    templateUrl: './address.component.html',
+    styleUrls: ['./address.component.scss'],
+    providers: [{provide: NG_VALUE_ACCESSOR, useExisting: AddressComponent, multi: true}]
 })
 export class AddressComponent implements OnInit, ControlValueAccessor, OnDestroy {
-  public form!: FormGroup<AddressForm>;
-  public FormControlName = FormControlName;
-  public onTouched = () => {
-  };
-  public onChangeSubscription: Subscription = new Subscription();
+    public form!: FormGroup<AddressForm>;
+    public FormControlName = FormControlName;
+    public onTouched = () => {
+    };
+    public onChangeSubscription: Subscription = new Subscription();
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    this.form = new FormGroup<AddressForm>({
-      [FormControlName.POSTAL_CODE]: new FormControl<string>('', {nonNullable: true}),
-      [FormControlName.CITY]: new FormControl<string>('', {nonNullable: true}),
-      [FormControlName.STREET]: new FormControl<string>('', {nonNullable: true}),
-      [FormControlName.STREET_NUMBER]: new FormControl<string>('', {nonNullable: true}),
-    });
-  }
-
-  writeValue(value: Address): void {
-    if (value) {
-      this.form.patchValue(value);
+    constructor() {
     }
-  }
 
-  registerOnChange(onChangeFn: any): void {
-    this.onChangeSubscription.add(this.form.valueChanges.subscribe(onChangeFn));
-  }
+    ngOnInit(): void {
+        this.form = new FormGroup<AddressForm>({
+            [FormControlName.POSTAL_CODE]: new FormControl<string>('', {nonNullable: true}),
+            [FormControlName.CITY]: new FormControl<string>('', {nonNullable: true}),
+            [FormControlName.STREET]: new FormControl<string>('', {nonNullable: true}),
+            [FormControlName.STREET_NUMBER]: new FormControl<string>('', {nonNullable: true}),
+        });
+    }
 
-  registerOnTouched(onTouchedFn: any): void {
-    this.onTouched = onTouchedFn;
-  }
+    writeValue(value: Address): void {
+        if (value) {
+            this.form.patchValue(value);
+        }
+    }
 
-  ngOnDestroy(): void {
-    this.onChangeSubscription.unsubscribe();
-  }
+    registerOnChange(onChangeFn: any): void {
+        this.onChangeSubscription.add(this.form.valueChanges.subscribe(onChangeFn));
+    }
+
+    registerOnTouched(onTouchedFn: any): void {
+        this.onTouched = onTouchedFn;
+    }
+
+    ngOnDestroy(): void {
+        this.onChangeSubscription.unsubscribe();
+    }
 }

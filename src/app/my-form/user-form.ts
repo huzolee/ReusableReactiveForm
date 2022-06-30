@@ -5,7 +5,7 @@ import {AddressFromGroup} from '../address/address-from-group';
 export type FormControlNameType = Record<FormControlName, unknown>
 
 export interface UserForm extends FormControlNameType {
-  [FormControlName.USERNAME]: FormControl<string>;
-  [FormControlName.PASSWORD]: FormControl<string>;
-  [FormControlName.ADDRESS]: AddressFromGroup;
+    [FormControlName.USERNAME]: FormControl<string>;
+    [FormControlName.PASSWORD]: FormControl<string>;
+    [FormControlName.ADDRESS]: AddressFromGroup;
 }
